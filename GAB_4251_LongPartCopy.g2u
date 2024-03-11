@@ -1,0 +1,1214 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmCopy..Create
+Gui.frmCopy..Caption("Copy Long Part, Router or BOM")
+Gui.frmCopy..Size(6405,4155)
+Gui.frmCopy..MinX(0)
+Gui.frmCopy..MinY(0)
+Gui.frmCopy..Position(0,0)
+Gui.frmCopy..BackColor(-2147483633)
+Gui.frmCopy..MousePointer(0)
+Gui.frmCopy..Event(UnLoad,frmCopy_UnLoad)
+Gui.frmCopy..MaxButton(False)
+Gui.frmCopy..Sizeable(False)
+Gui.frmCopy.cmdCopy.Create(Button)
+Gui.frmCopy.cmdCopy.Size(855,375)
+Gui.frmCopy.cmdCopy.Position(330,3330)
+Gui.frmCopy.cmdCopy.Caption("Copy")
+Gui.frmCopy.cmdCopy.Event(Click,cmdCopy_Click)
+Gui.frmCopy.cmdCopy.TabStop(True)
+Gui.frmCopy.cmdCopy.TabIndex(14)
+Gui.frmCopy.framePRB.Create(Frame)
+Gui.frmCopy.framePRB.Size(5565,570)
+Gui.frmCopy.framePRB.Position(330,30)
+Gui.frmCopy.framePRB.Caption("Copy...")
+Gui.frmCopy.optPart.Create(Option)
+Gui.frmCopy.optPart.Size(750,255)
+Gui.frmCopy.optPart.Position(90,240)
+Gui.frmCopy.optPart.Parent("framePRB")
+Gui.frmCopy.optPart.Caption("Part")
+Gui.frmCopy.optPart.Event(Click,RadioSelection)
+Gui.frmCopy.optPart.TabStop(True)
+Gui.frmCopy.optPart.TabIndex(1)
+Gui.frmCopy.optRouter.Create(Option)
+Gui.frmCopy.optRouter.Size(840,255)
+Gui.frmCopy.optRouter.Position(900,240)
+Gui.frmCopy.optRouter.Parent("framePRB")
+Gui.frmCopy.optRouter.Caption("Router")
+Gui.frmCopy.optRouter.Event(Click,RadioSelection)
+Gui.frmCopy.optRouter.TabStop(True)
+Gui.frmCopy.optRouter.TabIndex(2)
+Gui.frmCopy.optBOM.Create(Option)
+Gui.frmCopy.optBOM.Size(1425,255)
+Gui.frmCopy.optBOM.Position(1890,240)
+Gui.frmCopy.optBOM.Parent("framePRB")
+Gui.frmCopy.optBOM.Caption("Bill of Material")
+Gui.frmCopy.optBOM.Event(Click,RadioSelection)
+Gui.frmCopy.optBOM.TabStop(True)
+Gui.frmCopy.optBOM.TabIndex(3)
+Gui.frmCopy.frameSel.Create(Frame)
+Gui.frmCopy.frameSel.Size(5565,1740)
+Gui.frmCopy.frameSel.Position(330,750)
+Gui.frmCopy.txtFrom.Create(TextBox,"",True,3645,300,0,75,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtFrom.Parent("frameSel")
+Gui.frmCopy.txtFrom.Event(LostFocus,txtFrom_LostFocus)
+Gui.frmCopy.txtFrom.TabStop(True)
+Gui.frmCopy.txtFrom.TabIndex(4)
+Gui.frmCopy.txtTo.Create(TextBox,"",True,3645,300,0,75,1260,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtTo.Parent("frameSel")
+Gui.frmCopy.txtTo.TabStop(True)
+Gui.frmCopy.txtTo.TabIndex(8)
+Gui.frmCopy.txtTo.Event(LostFocus,txtTo_LostFocus)
+Gui.frmCopy.lblTo.Create(Label,"To Part Number:",True,2625,255,0,45,1050,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblTo.Parent("frameSel")
+Gui.frmCopy.lblFrom.Create(Label,"Copy Part Number From:",True,2610,255,0,45,315,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblFrom.Parent("frameSel")
+Gui.frmCopy.cmdBrwFrom.Create(Button)
+Gui.frmCopy.cmdBrwFrom.Size(375,375)
+Gui.frmCopy.cmdBrwFrom.Position(5115,480)
+Gui.frmCopy.cmdBrwFrom.Parent("frameSel")
+Gui.frmCopy.cmdBrwFrom.Caption("^")
+Gui.frmCopy.cmdBrwFrom.Event(Click,cmdBrwFrom_Click)
+Gui.frmCopy.cmdBrwFrom.TabStop(True)
+Gui.frmCopy.cmdBrwFrom.TabIndex(7)
+Gui.frmCopy.lblToLoc.Create(Label,"Loc",True,420,255,0,4605,1050,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblToLoc.Parent("frameSel")
+Gui.frmCopy.lblFromLoc.Create(Label,"Loc",True,420,255,0,4605,315,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblFromLoc.Parent("frameSel")
+Gui.frmCopy.lblToRev.Create(Label,"Rev",True,450,255,0,3840,1050,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblToRev.Parent("frameSel")
+Gui.frmCopy.lblFromRev.Create(Label,"Rev",True,450,255,0,3840,315,True,0,"Arial",8,-2147483633,0)
+Gui.frmCopy.lblFromRev.Parent("frameSel")
+Gui.frmCopy.txtFromRev.Create(TextBox,"",True,660,300,0,3810,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtFromRev.Parent("frameSel")
+Gui.frmCopy.txtFromRev.TabStop(True)
+Gui.frmCopy.txtFromRev.TabIndex(5)
+Gui.frmCopy.txtFromRev.Event(LostFocus,txtFromRev_LostFocus)
+Gui.frmCopy.txtFromLoc.Create(TextBox,"",True,480,300,0,4560,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtFromLoc.Parent("frameSel")
+Gui.frmCopy.txtFromLoc.TabStop(True)
+Gui.frmCopy.txtFromLoc.TabIndex(6)
+Gui.frmCopy.txtToLoc.Create(TextBox,"",True,480,300,0,4560,1260,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtToLoc.Parent("frameSel")
+Gui.frmCopy.txtToLoc.TabStop(True)
+Gui.frmCopy.txtToLoc.TabIndex(10)
+Gui.frmCopy.txtToRev.Create(TextBox,"",True,660,300,0,3810,1260,True,0,"Arial",8,-2147483643,1)
+Gui.frmCopy.txtToRev.Parent("frameSel")
+Gui.frmCopy.txtToRev.TabStop(True)
+Gui.frmCopy.txtToRev.TabIndex(9)
+Gui.frmCopy.txtToRev.Event(LostFocus,txtToRev_LostFocus)
+Gui.frmCopy.frameOpts.Create(Frame)
+Gui.frmCopy.frameOpts.Size(5565,570)
+Gui.frmCopy.frameOpts.Position(330,2610)
+Gui.frmCopy.frameOpts.Caption("Options")
+Gui.frmCopy.chkRouter.Create(CheckBox)
+Gui.frmCopy.chkRouter.Size(1335,240)
+Gui.frmCopy.chkRouter.Position(120,240)
+Gui.frmCopy.chkRouter.Parent("frameOpts")
+Gui.frmCopy.chkRouter.Caption("Copy Router")
+Gui.frmCopy.chkRouter.TabStop(True)
+Gui.frmCopy.chkRouter.TabIndex(12)
+Gui.frmCopy.chkBOM.Create(CheckBox)
+Gui.frmCopy.chkBOM.Size(1860,240)
+Gui.frmCopy.chkBOM.Position(1620,240)
+Gui.frmCopy.chkBOM.Parent("frameOpts")
+Gui.frmCopy.chkBOM.Caption("Copy Bill of Material")
+Gui.frmCopy.chkBOM.TabStop(True)
+Gui.frmCopy.chkBOM.TabIndex(13)
+Gui.frmCopy.chkPart.Create(CheckBox)
+Gui.frmCopy.chkPart.Visible(False)
+Gui.frmCopy.chkPart.Size(1335,240)
+Gui.frmCopy.chkPart.Position(120,240)
+Gui.frmCopy.chkPart.Parent("frameOpts")
+Gui.frmCopy.chkPart.Caption("Copy Part")
+Gui.frmCopy.chkPart.TabStop(True)
+Gui.frmCopy.chkPart.TabIndex(11)
+Gui.frmCopy.chkPart.Event(Click,chkPart_Click)
+Gui.frmCopy.chkMaint.Create(CheckBox)
+Gui.frmCopy.chkMaint.Size(1725,240)
+Gui.frmCopy.chkMaint.Position(3705,240)
+Gui.frmCopy.chkMaint.Parent("frameOpts")
+Gui.frmCopy.chkMaint.Caption("Maintain New Part")
+Gui.frmCopy.chkMaint.Visible(False)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.bLargeInv.Declare
+	V.Global.bClear.Declare
+	V.Global.sFrom.Declare
+	V.Global.sFromRev.Declare
+	V.Global.sFromLoc.Declare
+	V.Global.sLongPart.Declare
+	V.Global.sLongRev.Declare
+	V.Global.sLoc.Declare
+	V.Global.sGSSPart.Declare
+	V.Global.sGSSPart12.Declare
+	V.Global.bPartMaint.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'Copy Long Part, Router, and BOMs
+	
+	V.Local.sIcon.Declare
+	
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+	Gui.frmCopy..Icon(V.Local.sIcon)
+	
+	F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Global.General.ReadOption("400861",0,False,"0000",V.Global.bLargeInv)
+	F.Intrinsic.Control.CallSub(filltextboxes)
+	F.Intrinsic.Control.CallSub(settextboxlen)
+	V.Global.bClear.Set(True)
+	
+	Gui.frmCopy.optPart.Value(True)
+	
+	Gui.frmCopy..Show
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.frmCopy_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmCopy_UnLoad.End
+
+Program.Sub.RadioSelection.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'Activate fields and set captions accordingly to the radio selections
+	
+	F.Intrinsic.Control.If(V.Global.bClear)
+		F.Intrinsic.Control.CallSub(clearscreen)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+		Gui.frmCopy.lblFrom.Caption("Copy Part Number From:")
+		Gui.frmCopy.lblTo.Caption("To Part Number:")
+		Gui.frmCopy.chkPart.Visible(False)
+		Gui.frmCopy.chkPart.Position(120,240)
+		Gui.frmCopy.chkRouter.Visible(True)
+		Gui.frmCopy.chkRouter.Position(120,240)
+		Gui.frmCopy.chkBOM.Visible(True)
+		Gui.frmCopy.chkBOM.Position(1620,240)
+'		Gui.frmCopy.chkMaint.Visible(True)
+		Gui.frmCopy.lblFromLoc.Visible(True)
+		Gui.frmCopy.txtFromLoc.Visible(True)
+		Gui.frmCopy.lblToLoc.Visible(True)
+		Gui.frmCopy.txtToLoc.Visible(True)
+		Gui.frmCopy.cmdBrwFrom.Position(5115,480)
+	F.Intrinsic.Control.ElseIf(V.Screen.frmCopy!optRouter.Value)
+		Gui.frmCopy.lblFrom.Caption("Copy Router From:")
+		Gui.frmCopy.lblTo.Caption("To Router:")
+		Gui.frmCopy.chkPart.Visible(True)
+		Gui.frmCopy.chkPart.Position(120,240)
+		Gui.frmCopy.chkRouter.Visible(False)
+		Gui.frmCopy.chkRouter.Position(120,240)
+		Gui.frmCopy.chkBOM.Visible(True)
+		Gui.frmCopy.chkBOM.Position(1620,240)
+'		Gui.frmCopy.chkMaint.Visible(False)
+		Gui.frmCopy.lblFromLoc.Visible(False)
+		Gui.frmCopy.txtFromLoc.Visible(False)
+		Gui.frmCopy.lblToLoc.Visible(False)
+		Gui.frmCopy.txtToLoc.Visible(False)
+		Gui.frmCopy.cmdBrwFrom.Position(4500,480)
+	F.Intrinsic.Control.Else
+		Gui.frmCopy.lblFrom.Caption("Copy Bill of Material Parent From:")
+		Gui.frmCopy.lblTo.Caption("To Bill of Material Parent:")
+		Gui.frmCopy.chkPart.Visible(True)
+		Gui.frmCopy.chkPart.Position(120,240)
+		Gui.frmCopy.chkRouter.Visible(True)
+		Gui.frmCopy.chkRouter.Position(1620,240)
+		Gui.frmCopy.chkBOM.Visible(False)
+		Gui.frmCopy.chkBOM.Position(1620,240)
+'		Gui.frmCopy.chkMaint.Visible(False)
+		Gui.frmCopy.lblFromLoc.Visible(False)
+		Gui.frmCopy.txtFromLoc.Visible(False)
+		Gui.frmCopy.lblToLoc.Visible(False)
+		Gui.frmCopy.txtToLoc.Visible(False)
+		Gui.frmCopy.cmdBrwFrom.Position(4500,480)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.RadioSelection.End
+
+Program.Sub.cmdBrwFrom_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'Browsers for From field
+	
+	V.Local.sRet.Declare
+	V.Local.sTitles.Declare
+	V.Local.iWidths.Declare
+	
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	
+	F.Intrinsic.Control.If(V.Global.bLargeInv)
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+			F.Intrinsic.String.Split("Part*!*Rev*!*Loc*!*Inactive*!*Customer*!*Customer Part*!*Mfg Part*!*Mfg Name*!*Description*!*On Hand","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*200*!*200*!*500*!*500*!*500*!*500*!*1000*!*600","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Part:","con","SELECT DISTINCT DISPLAY_PART,DISPLAY_REV,LOCATION,FLAG_INACTIVE,CUSTOMER,DISPLAY_CUST_PART,DISPLAY_MFG_PART,MFG_NAME,DESCRIPTION,QTY_ONHAND FROM ATG_BRW_INVENTORY ORDER BY DISPLAY_PART,DISPLAY_REV;",V.Local.sTitles,V.Local.iWidths,"16000","8000",V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				Gui.frmCopy.txtFromLoc.Text(V.Local.sRet(2).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Inv")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.ElseIf(V.Screen.frmCopy!optRouter.Value)
+			F.Intrinsic.String.Split("Router*!*Rev*!*Router Description","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*800","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Router:","con","SELECT DISTINCT DISPLAY_RTR,DISPLAY_REV,DESCRIPTION FROM ATG_BRW_ROUTER ORDER BY DISPLAY_RTR,DISPLAY_REV;",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Rtr")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Split("Parent*!*Rev*!*Description","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*800","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Parent:","con","SELECT DISTINCT DISPLAY_PARENT,DISPLAY_REV,DESCRIPTION FROM ATG_BRW_BOM ORDER BY DISPLAY_PARENT, DISPLAY_REV;",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Bom")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+			F.Intrinsic.String.Split("Part*!*Rev*!*Loc*!*Inactive*!*Customer*!*Customer Part*!*Mfg Part*!*Mfg Name*!*Description*!*On Hand","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*200*!*200*!*500*!*500*!*500*!*500*!*1000*!*600","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Part:","con","SELECT DISTINCT IF(INV_LXR.DISPLAY_PART is null, SUBSTRING(INV_CROSS_REF.PART, 1, 17), INV_LXR.DISPLAY_PART), IF(INV_LXR.DISPLAY_PART IS NULL, SUBSTRING(INV_CROSS_REF.PART, 18, 3), INV_LXR.DISPLAY_REV), INV_CROSS_REF.LOCATION, INVENTORY_MSTR.FLAG_INACTIVE, INV_CROSS_REF.CUSTOMER, IF (LPART_CUST_XREF.LONG_PART IS NULL, INV_CROSS_REF.CUSTOMER_PART, LPART_CUST_XREF.LONG_PART), IF (LPART_MFG_XREF.LONG_PART IS NULL, INV_CROSS_REF.MFG_PART, LPART_MFG_XREF.LONG_PART),INV_CROSS_REF.MFG_NAME, INV_CROSS_REF.DESCRIPTION, INVENTORY_MSTR.QTY_ONHAND FROM INV_CROSS_REF LEFT OUTER JOIN INVENTORY_MSTR ON INV_CROSS_REF.PART = INVENTORY_MSTR.PART AND INV_CROSS_REF.LOCATION = INVENTORY_MSTR.LOCATION LEFT OUTER JOIN INV_LXR ON INV_CROSS_REF.PART = INV_LXR.GSS_PART LEFT OUTER JOIN LPART_CUST_XREF ON INV_CROSS_REF.CUSTOMER_PART = LPART_CUST_XREF.PART LEFT OUTER JOIN LPART_MFG_XREF ON INV_CROSS_REF.MFG_PART = LPART_MFG_XREF.PART ORDER BY 1,2;",V.Local.sTitles,V.Local.iWidths,"16000","8000",V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				Gui.frmCopy.txtFromLoc.Text(V.Local.sRet(2).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Inv")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.ElseIf(V.Screen.frmCopy!optRouter.Value)
+			F.Intrinsic.String.Split("Router*!*Rev*!*Router Description","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*800","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Router:","con","SELECT IF(INV_LXR.GSS_PART IS NULL, SUBSTRING(ROUTER, 1, 17), DISPLAY_PART),IF(INV_LXR.GSS_PART IS NULL, SUBSTRING(ROUTER, 18, 3), DISPLAY_REV),DESCRIPTION_ROUTER FROM ROUTER_HEADER LEFT OUTER JOIN INV_LXR ON INV_LXR.GSS_PART = ROUTER_HEADER.ROUTER WHERE ROUTER_TYPE = 'H' ORDER BY 1,2;",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Rtr")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Split("Parent*!*Rev*!*Description","*!*",V.Local.sTitles)
+			F.Intrinsic.String.Split("1500*!*500*!*800","*!*",V.Local.iWidths)
+			F.Intrinsic.UI.Browser("Select Parent:","con","SELECT IF(INV_LXR.GSS_PART IS NULL, SUBSTRING(PARENT, 1,17), DISPLAY_PART),IF(INV_LXR.GSS_PART IS NULL, SUBSTRING(PARENT, 18, 3), DISPLAY_REV),DESCR FROM V_BOM_MSTR_PARENT LEFT OUTER JOIN INV_LXR ON INV_LXR.GSS_PART = V_BOM_MSTR_PARENT.PARENT WHERE PARENT <> '' OR DISPLAY_PART <> '' ORDER BY 1,2;",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+				Gui.frmCopy.txtFrom.Text(V.Local.sRet(0).Trim)
+				Gui.frmCopy.txtFromRev.Text(V.Local.sRet(1).Trim)
+				F.Intrinsic.Control.CallSub(txtfrom_lostfocus,"Type","Bom")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrwFrom_Click.End
+
+Program.Sub.cmdCopy_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'Copy Data based on Radio selected and validate fields
+	
+	V.Global.sFrom.Set(V.Screen.frmCopy!txtFrom.Text)
+	V.Global.sFromRev.Set(V.Screen.frmCopy!txtFromRev.Text)
+	V.Global.sFromLoc.Set(V.Screen.frmCopy!txtFromLoc.Text)
+	V.Global.sLongPart.Set(V.Screen.frmCopy!txtTo.Text)
+	V.Global.sLongRev.Set(V.Screen.frmCopy!txtToRev.Text)
+	V.Global.sLoc.Set(V.Screen.frmCopy!txtToLoc.Text)
+
+	F.Intrinsic.Control.If(V.Global.sFrom,<>,"")
+	F.Intrinsic.Control.AndIf(V.Global.sLongPart,<>,"")
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+			F.Intrinsic.Control.CallSub(copypart)
+		F.Intrinsic.Control.ElseIf(V.Screen.frmCopy!optRouter.Value)
+			F.Intrinsic.Control.CallSub(copyrouter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(copybom)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdCopy_Click.End
+
+Program.Sub.ClearScreen.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmCopy.txtFrom.Text("")
+	Gui.frmCopy.txtFromRev.Text("")
+	Gui.frmCopy.txtFromLoc.Text("")
+	Gui.frmCopy.txtTo.Text("")
+	Gui.frmCopy.txtToRev.Text("")
+	Gui.frmCopy.txtToLoc.Text("")
+	Gui.frmCopy.chkPart.Value(False)
+	Gui.frmCopy.chkRouter.Value(False)
+	Gui.frmCopy.chkBOM.Value(False)
+	Gui.frmCopy.chkMaint.Value(False)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.ClearScreen.End
+
+Program.Sub.FillTextboxes.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bExists.Declare
+	
+	F.Data.Dictionary.Exists("dicFrom",V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists)
+		F.Data.Dictionary.Close("dicFrom")
+		Gui.frmCopy.txtFrom.ClearAutoCompleteItems
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.Dictionary.CreateFromSQL("dicFrom","con","Select Gss_Part,Display_Part from Inv_Lxr;")
+	Gui.frmCopy.txtFrom.AddAutoCompleteItem("dicFrom","Dictionary")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.FillTextboxes.End
+
+Program.Sub.txtFrom_LostFocus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sDisplayPart.Declare
+	V.Local.sDisplayRev.Declare
+	V.Local.sGssPartString.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRetInv.Declare
+	V.Local.sRetRtr.Declare
+	V.Local.sRetBom.Declare
+	V.Local.iLen.Declare
+	V.Local.sRev.Declare
+	V.Local.sType.Declare
+	V.Local.bArg.Declare
+	
+	Gui.frmCopy.chkPart.Value(0)
+	Gui.frmCopy.chkRouter.Value(0)
+	Gui.frmCopy.chkBOM.Value(0)
+	
+	V.Local.sDisplayPart.Set(V.Screen.frmCopy!txtFrom.Text)
+	F.Intrinsic.String.UCase(V.Local.sDisplayPart,V.Local.sDisplayPart)
+	Gui.frmCopy.txtFrom.Text(V.Local.sDisplayPart.Trim)
+	
+	V.Local.sDisplayRev.Set(V.Screen.frmCopy!txtFromRev.Text)
+	F.Intrinsic.String.UCase(V.Local.sDisplayRev,V.Local.sDisplayRev)
+	Gui.frmCopy.txtFromRev.Text(V.Local.sDisplayRev.Trim)
+	
+	
+	F.Intrinsic.Variable.ArgExists("Type",V.Local.bArg)
+	F.Intrinsic.Control.If(V.Local.bArg,=,False)
+		V.Local.sType.Set("None")
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Local.sDisplayPart.Trim,<>,"")
+		F.Intrinsic.Control.SelectCase(V.Local.sType)
+			F.Intrinsic.Control.Case("Inv")
+				V.Local.sRetInv.Set("")
+				F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Local.sDisplayPart.Trim,V.Local.sDisplayRev.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+'				F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.Intrinsic.String.Build("SELECT ROUTER FROM v_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetRtr)
+				F.Intrinsic.String.Build("SELECT PARENT FROM V_BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetBom)
+			
+			F.Intrinsic.Control.Case("Rtr")
+				V.Local.sRetRtr.Set("")
+				F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Local.sDisplayPart.Trim,V.Local.sDisplayRev.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+				F.Intrinsic.String.Build("SELECT TOP 1 PART,LOCATION FROM V_INVENTORY_MSTR WHERE PART LIKE '{0}%';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetInv)
+				F.Intrinsic.String.Build("SELECT PARENT FROM V_BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetBom)
+			
+			F.Intrinsic.Control.Case("Bom")
+				V.Local.sRetBom.Set("")
+				F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Local.sDisplayPart.Trim,V.Local.sDisplayRev.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+				F.Intrinsic.String.Build("SELECT TOP 1 PART,LOCATION FROM V_INVENTORY_MSTR WHERE PART LIKE '{0}%';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetInv)
+'				F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.Intrinsic.String.Build("SELECT RTR_NUM FROM v_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetRtr)
+			
+			F.Intrinsic.Control.Case("None")
+				F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}';",V.Local.sDisplayPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+				F.Intrinsic.String.Build("SELECT TOP 1 PART,LOCATION FROM V_INVENTORY_MSTR WHERE PART LIKE '{0}%';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetInv)
+'				F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.Intrinsic.String.Build("SELECT RTR_NUM FROM v_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetRtr)
+				F.Intrinsic.String.Build("SELECT PARENT FROM V_BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Global.sGSSPart.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRetBom)
+		F.Intrinsic.Control.EndSelect
+
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+			F.Intrinsic.Control.If(V.Local.sRetInv,<>,"")
+				F.Intrinsic.String.Split(V.Local.sRetInv,"*!*",V.Local.sRetInv)
+				F.Intrinsic.String.Split(V.Local.sRetInv(0),"||",V.Local.sRev)
+				F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+					Gui.frmCopy.txtFromRev.Text("")
+				F.Intrinsic.Control.Else
+					Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+				F.Intrinsic.Control.EndIf
+				Gui.frmCopy.txtFromLoc.Text(V.Local.sRetInv(1))
+				
+				F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+					Gui.frmCopy.chkRouter.Value(True)
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+					Gui.frmCopy.chkBOM.Value(True)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.ElseIf(V.Local.sRetInv,=,"")
+				F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+					Gui.frmCopy.optRouter.Value(True)
+					V.Global.bClear.Set(False)
+					f.Intrinsic.Control.CallSub(radioselection)
+					V.Global.bClear.Set(True)
+					Gui.frmCopy.chkPart.Value(False)
+					Gui.frmCopy.txtFrom.Text(V.Local.sDisplayPart.Trim)
+					F.Intrinsic.String.Split(V.Local.sRetInv(0),"||",V.Local.sRev)
+					F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+						Gui.frmCopy.txtFromRev.Text("")
+					F.Intrinsic.Control.Else
+						Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+					F.Intrinsic.Control.EndIf
+					
+					F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+						Gui.frmCopy.chkBOM.Value(True)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.ElseIf(V.Local.sRetRtr,=,"")
+					F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+						Gui.frmCopy.optBOM.Value(True)
+						Gui.frmCopy.chkPart.Value(False)
+						Gui.frmCopy.chkRouter.Value(False)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.ElseIf(V.Screen.frmCopy!optRouter.Value)
+			F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+				F.Intrinsic.String.Split(V.Local.sRetRtr,"||",V.Local.sRev)
+				F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+					Gui.frmCopy.txtFromRev.Text("")
+				F.Intrinsic.Control.Else
+					Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.Control.If(V.Local.sRetInv,<>,"")
+					Gui.frmCopy.chkPart.Value(True)
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+					Gui.frmCopy.chkBOM.Value(True)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.ElseIf(V.Local.sRetRtr,=,"")
+				F.Intrinsic.Control.If(V.Local.sRetInv,<>,"")
+					Gui.frmCopy.optPart.Value(True)
+					V.Global.bClear.Set(False)
+					f.Intrinsic.Control.CallSub(radioselection)
+					V.Global.bClear.Set(True)
+					Gui.frmCopy.chkRouter.Value(False)
+					Gui.frmCopy.txtFrom.Text(V.Local.sDisplayPart.Trim)
+					F.Intrinsic.String.Split(V.Local.sRetInv,"||",V.Local.sRev)
+					F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+						Gui.frmCopy.txtFromRev.Text("")
+					F.Intrinsic.Control.Else
+						Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+					F.Intrinsic.Control.EndIf
+					
+					F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+						Gui.frmCopy.chkBOM.Value(True)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.ElseIf(V.Local.sRetInv,=,"")
+					F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+						Gui.frmCopy.optBOM.Value(True)
+						Gui.frmCopy.chkRouter.Value(False)
+						Gui.frmCopy.chkPart.Value(False)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.Local.sRetBom,<>,"")
+				F.Intrinsic.String.Split(V.Local.sRetBom,"||",V.Local.sRev)
+				F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+					Gui.frmCopy.txtFromRev.Text("")
+				F.Intrinsic.Control.Else
+					Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.Control.If(V.Local.sRetInv,<>,"")
+					Gui.frmCopy.chkPart.Value(True)
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+					Gui.frmCopy.chkRouter.Value(True)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.ElseIf(V.Local.sRetBom,=,"")
+				F.Intrinsic.Control.If(V.Local.sRetInv,<>,"")
+					Gui.frmCopy.optPart.Value(True)
+					V.Global.bClear.Set(False)
+					F.Intrinsic.Control.CallSub(radioselection)
+					V.Global.bClear.Set(True)
+					Gui.frmCopy.chkBOM.Value(False)
+					Gui.frmCopy.txtFrom.Text(V.Local.sDisplayPart.Trim)
+					F.Intrinsic.String.Split(V.Local.sRetInv,"||",V.Local.sRev)
+					F.Intrinsic.Control.If(V.Local.sRev(1),=,"OOB")
+						Gui.frmCopy.txtFromRev.Text("")
+					F.Intrinsic.Control.Else
+						Gui.frmCopy.txtFromRev.Text(V.Local.sRev(1))
+					F.Intrinsic.Control.EndIf
+					
+					F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+						Gui.frmCopy.chkRouter.Value(True)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.ElseIf(V.Local.sRetInv,=,"")
+					F.Intrinsic.Control.If(V.Local.sRetRtr,<>,"")
+						Gui.frmCopy.optRouter.Value(True)
+						Gui.frmCopy.chkBOM.Value(False)
+						Gui.frmCopy.chkPart.Value(False)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtFrom_LostFocus.End
+
+Program.Sub.txtTo_LostFocus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sTo.Declare
+	
+	V.Local.sTo.Set(V.Screen.frmCopy!txtTo.Text)
+	Gui.frmCopy.txtTo.Text(V.Local.sTo.UCase)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtTo_LostFocus.End
+
+Program.Sub.txtToRev_LostFocus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sToRev.Declare
+	
+	V.Local.sToRev.Set(V.Screen.frmCopy!txtToRev.Text)
+	Gui.frmCopy.txtToRev.Text(V.Local.sToRev.UCase)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtToRev_LostFocus.End
+
+Program.Sub.txtFromRev_LostFocus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Global.sFromRev.Set(V.Screen.frmCopy!txtFromRev.Text)
+	Gui.frmCopy.txtFromRev.Text(V.Global.sFromRev.UCase)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtFromRev_LostFocus.End
+
+Program.Sub.CopyPart.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sBar.Declare
+	V.Local.iBar.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iLen.Declare
+	V.Local.sPart.Declare
+	V.Local.s3500.Declare
+	
+
+	F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sLongPart,V.Global.sLongRev,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+	F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+		F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev,V.Local.sPart)
+		F.Intrinsic.String.Build("SELECT PART FROM INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}';",V.Local.sPart,V.Global.sLoc,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("SELECT PART FROM INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sLoc,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)	
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.UI.Msgbox("The To Part already exists.","Part Validation")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+'			F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE DISPLAY_PART LIKE '{0}%' ORDER BY GSS_PART DESC;",V.Global.sLongPart.Left12,V.Local.sSQL)
+'			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+'			F.Intrinsic.String.Split(V.Global.sGSSPart,"||",V.Global.sGSSPart12)
+'			
+'			F.Intrinsic.Control.If(V.Global.sGSSPart12,<>,"")
+'				F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE GSS_PART LIKE '{0}%' ORDER BY GSS_PART DESC;",V.Global.sGSSPart12(0),V.Local.sSQL)
+'				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+'			F.Intrinsic.Control.Else
+'				V.Local.sRet.Set("")
+'			F.Intrinsic.Control.EndIf
+			V.Local.sRet.Set("")
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				F.Intrinsic.String.Len(V.Global.sLongPart,V.Local.iLen)
+				F.Intrinsic.Control.If(V.Local.iLen,>,17)
+'					F.Intrinsic.String.Left(V.Global.sLongPart,12,V.Global.sGSSPart)
+'					F.Intrinsic.String.Build("{0}001||{1}",V.Global.sGSSPart,V.Global.sLongRev.Left3,V.Global.sGSSPart12)
+					Function.Global.Inventory.GetGSSPart(V.Global.sLongPart,V.Global.sLongRev,V.Global.sGSSPart12)
+'					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+'					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev.Left3,V.Global.sGSSPart12)
+					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)					
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Split(V.Local.sRet,"||",V.Local.sRet)
+				F.Intrinsic.String.Left(V.Local.sRet(0),12,V.Global.sGSSPart)
+				F.Intrinsic.String.Right(V.Local.sRet(0),3,V.Local.sBar)
+				F.Intrinsic.Math.ConvertToLong(V.Local.sBar,V.Local.iBar)
+				F.Intrinsic.Math.Add(V.Local.iBar,1,V.Local.iBar)
+				F.Intrinsic.String.LPad(V.Local.iBar,"0",3,V.Local.sBar)
+				F.Intrinsic.String.Build("{0}{1}||{2}",V.Global.sGSSPart,V.Local.sBar,V.Global.sLongRev.Left3,V.Global.sGSSPart12)
+				F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sFrom,V.Global.sFromRev,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+		F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+			F.Intrinsic.String.GSSPartString(V.Global.sFrom,V.Global.sFromRev,V.Local.sPart)
+			F.Intrinsic.String.Build("SELECT PART,LOCATION FROM V_INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}';",V.Local.sPart,V.Global.sFromLoc,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			V.Global.sGSSPart.Set(V.Local.sRet(0))
+			V.Global.sFromLoc.Set(V.Local.sRet(1))
+		F.Intrinsic.Control.EndIf
+		
+		'INVENTORY_MSTR
+		F.Intrinsic.String.Build("SELECT * FROM INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sFromLoc,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtInvMstr","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtInvMstr.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtInvMstr",0,"PART",V.Global.sGSSPart12,"LOCATION",V.Global.sLoc)
+			F.Data.DataTable.SaveToDB("dtInvMstr","con","INVENTORY_MSTR","PART*!*LOCATION",256)
+			'INVENTORY_COST
+			F.Intrinsic.String.Build("INSERT INTO INVENTORY_COST(PART,LOCN,COST,MATL,LABOR,OVHD,OUTS,FREIGHT,OTH,CHG_BY,CHG_PGM) VALUES('{0}','{1}',0,0,0,0,0,0,0,'{2}','GAB_####');",V.Global.sGSSPart12,V.Global.sLoc,V.Caller.User,V.Local.sSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			V.Global.bPartMaint.Set(True)
+		F.Intrinsic.Control.Else
+			F.Data.DataTable.Close("dtInvMstr")
+			Function.Intrinsic.UI.Msgbox("No Parts to Update.","Part Check")
+			V.Global.bPartMaint.Set(False)
+			Function.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtInvMstr")
+		'INVENTORY_MST2
+		F.Intrinsic.String.Build("SELECT * FROM INVENTORY_MST2 WHERE PART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sFromLoc,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtInvMstr","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtInvMstr.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtInvMstr",0,"PART",V.Global.sGSSPart12,"LOCATION",V.Global.sLoc)
+			F.Data.DataTable.SaveToDB("dtInvMstr","con","INVENTORY_MST2","PART*!*LOCATION",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtInvMstr")
+		'INVENTORY_MST3
+		F.Intrinsic.String.Build("SELECT * FROM INVENTORY_MST3 WHERE PART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sFromLoc,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtInvMstr","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtInvMstr.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtInvMstr",0,"PART",V.Global.sGSSPart12,"LOCATION",V.Global.sLoc)
+			F.Data.DataTable.SaveToDB("dtInvMstr","con","INVENTORY_MST3","PART*!*LOCATION",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtInvMstr")
+		'INV_CROSS_REF
+		F.Intrinsic.String.Build("SELECT * FROM INV_CROSS_REF WHERE PART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sFromLoc,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtInvMstr","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtInvMstr.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtInvMstr",0,"PART",V.Global.sGSSPart12,"LOCATION",V.Global.sLoc)
+			F.Data.DataTable.SaveToDB("dtInvMstr","con","INV_CROSS_REF","PART*!*LOCATION",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtInvMstr")
+		'ATG_BRW_INVENTORY
+		F.Intrinsic.String.Build("SELECT * FROM ATG_BRW_INVENTORY WHERE GSSPART = '{0}' AND LOCATION = '{1}';",V.Global.sGSSPart,V.Global.sFromLoc,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtInvMstr","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtInvMstr.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtInvMstr",0,"DISPLAY_PART",V.Global.sLongPart,"DISPLAY_REV",V.Global.sLongRev,"GSSPART",V.Global.sGSSPart12,"LOCATION",V.Global.sLoc)
+			F.Data.DataTable.SaveToDB("dtInvMstr","con","ATG_BRW_INVENTORY","DISPLAY_PART*!*DISPLAY_REV*!*GSSPART*!*LOCATION",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtInvMstr")
+		
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optPart.Value)
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkRouter.Value,=,1)
+				F.Intrinsic.Control.CallSub(copyrouter)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkBOM.Value,=,1)
+				F.Intrinsic.Control.CallSub(copybom)
+			F.Intrinsic.Control.EndIf
+			
+'			F.Intrinsic.Control.If(V.Screen.frmCopy!chkMaint.Value,=,1)
+'				F.Intrinsic.String.Build("{0}*!*O*!*{1}*!*{1}*!*{2}*!*{3}",V.Caller.CompanyCode,"!*!ZDR!*!",V.Global.sGSSPart12,V.Global.sLoc,V.Local.s3500)
+'				F.Global.General.CallWrapperSync(3500,V.Local.s3500)
+'			F.Intrinsic.Control.EndIf
+		
+		
+			F.Intrinsic.UI.Msgbox("Copy Complete","Complete")
+
+			F.Intrinsic.Control.CallSub(clearscreen)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+
+	f.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,20004)
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	f.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndTry
+Program.Sub.CopyPart.End
+
+Program.Sub.CopyRouter.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sBar.Declare
+	V.Local.iBar.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iLen.Declare
+	V.Local.sPart.Declare
+	
+	F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sLongPart,V.Global.sLongRev,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+	F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+		F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev,V.Local.sPart)
+		F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Local.sPart,V.Local.sSQL)
+'		F.Intrinsic.String.Build("SELECT RTR_NUM FROM v_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Local.sPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+'		F.Intrinsic.String.Build("SELECT RTR_NUM FROM v_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.UI.Msgbox("The To Router already exists.","Router Validation")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optRouter.Value)
+			F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' ORDER BY GSS_PART DESC;",V.Global.sLongPart,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+			F.Intrinsic.String.Split(V.Global.sGSSPart,"||",V.Global.sGSSPart12)
+			
+			F.Intrinsic.Control.If(V.Global.sGSSPart12,<>,"")
+				F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE GSS_PART LIKE '{0}%' ORDER BY GSS_PART DESC;",V.Global.sGSSPart12(0),V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.Control.Else
+				V.Local.sRet.Set("")
+			F.Intrinsic.Control.EndIf
+			
+			V.Local.sRet.Set("")
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				F.Intrinsic.String.Len(V.Global.sLongPart,V.Local.iLen)
+				F.Intrinsic.Control.If(V.Local.iLen,>,17)
+'					F.Intrinsic.String.Left(V.Global.sLongPart,12,V.Global.sGSSPart)
+'					F.Intrinsic.String.Build("{0}001||{1}",V.Global.sGSSPart,V.Global.sLongRev,V.Global.sGSSPart12)
+					Function.Global.Inventory.GetGSSPart(V.Global.sLongPart,V.Global.sLongRev,V.Global.sGSSPart12)
+'					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+'					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev,V.Global.sGSSPart12)
+					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)					
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Split(V.Local.sRet,"||",V.Local.sRet)
+				F.Intrinsic.String.Left(V.Local.sRet(0),12,V.Global.sGSSPart)
+				F.Intrinsic.String.Right(V.Local.sRet(0),3,V.Local.sBar)
+				F.Intrinsic.Math.ConvertToLong(V.Local.sBar,V.Local.iBar)
+				F.Intrinsic.Math.Add(V.Local.iBar,1,V.Local.iBar)
+				F.Intrinsic.String.LPad(V.Local.iBar,"0",3,V.Local.sBar)
+				F.Intrinsic.String.Build("{0}{1}||{2}",V.Global.sGSSPart,V.Local.sBar,V.Global.sLongRev,V.Global.sGSSPart12)
+				F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	
+		F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sFrom,V.Global.sFromRev,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+		F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+			F.Intrinsic.String.GSSPartString(V.Global.sFrom,V.Global.sFromRev,V.Local.sPart)
+			F.Intrinsic.String.Build("SELECT ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '{0}';",V.Local.sPart,V.Local.sSQL)
+'			F.Intrinsic.String.Build("SELECT RTR_NUM FROM V_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Local.sPart,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+		F.Intrinsic.Control.EndIf
+
+
+
+'************
+		'ROUTER_HEADER
+		F.Intrinsic.String.Build("SELECT * FROM ROUTER_HEADER WHERE ROUTER = '{0}' and Router_TYPE = 'H' ;",V.Global.sGSSPart,V.Local.sSQL)
+'		F.Intrinsic.String.Build("SELECT * FROM ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}' AND TYPE = 'H';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_HEADER","ROUTER*!*ROUTER_SUFFIX*!*Router_TYPE",256)
+'			F.Data.DataTable.SetValue("dtRouter",0,"RTR_NUM",V.Global.sGSSPart12.Trim)
+'			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_SUPP_HDR","RTR_NUM*!*SUFFIX",256)
+		F.Intrinsic.Control.Else
+			Function.Intrinsic.UI.Msgbox("No Routers to Update.","Router Check")
+			Function.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'ROUTER_LINE
+		F.Intrinsic.String.Build("SELECT * FROM ROUTER_LINE WHERE ROUTER like '%{0}' and Router_TYPE =  'L' ;",V.Global.sGSSPart,V.Local.sSQL)
+'		F.Intrinsic.String.Build("SELECT * FROM ROUTER_LINE WHERE ROUTER = '{0}' AND ROUTER_TYPE = 'L';",V.Global.sGSSPart,V.Local.sSQL)
+'		F.Intrinsic.String.Build("SELECT * FROM ROUTER_SUPP_Line WHERE RTR_NUM = '{0}' AND TYPE = 'L';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",-1,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_LINE","ROUTER*!*ROUTER_SUFFIX*!*ROUTER_TYPE*!*LINE_ROUTER*!*ROUTER_INSERT",256)
+'			F.Data.DataTable.SetValue("dtRouter",-1,"RTR_NUM",V.Global.sGSSPart12.Trim)
+'			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_SUPP_Line","RTR_NUM*!*SUFFIX*!*TYPE*!*LINE*!*F_INSERT",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		
+		
+'************		
+		
+		
+		'ROUTER_DESC
+		F.Intrinsic.String.Build("SELECT * FROM ROUTER_DESC WHERE ROUTER = '{0}' AND ROUTER_TYPE = 'I';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+			F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_DESC","ROUTER*!*ROUTER_SUFFIX*!*ROUTER_TYPE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'RTR_PRICE_1_4
+		F.Intrinsic.String.Build("SELECT * FROM RTR_PRICE_1_4 WHERE ROUTER = '{0}' AND ROUTER_TYPE = 'Q' AND ROUTER_INSERT = '   ';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","RTR_PRICE_1_4","ROUTER*!*ROUTER_SUFFIX*!*ROUTER_TYPE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'RTR_PRICE_5_8
+		F.Intrinsic.String.Build("SELECT * FROM RTR_PRICE_5_8 WHERE ROUTER = '{0}' AND ROUTER_TYPE = 'Q' AND ROUTER_INSERT = '01';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","RTR_PRICE_5_8","ROUTER*!*ROUTER_SUFFIX*!*ROUTER_TYPE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'RTR_PRICE_9_10
+		F.Intrinsic.String.Build("SELECT * FROM RTR_PRICE_9_10 WHERE ROUTER = '{0}' AND ROUTER_TYPE = 'Q' AND ROUTER_INSERT = '02';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","RTR_PRICE_9_10","ROUTER*!*ROUTER_SUFFIX*!*ROUTER_TYPE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'
+		
+		F.Intrinsic.String.Build("SELECT *  FROM  V_ROUTER_SUPP_HDR WHERE RTR_NUM = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"RTR_NUM",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_SUPP_HDR","RTR_NUM*!*SUFFIX*!*TYPE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		
+		F.Intrinsic.String.Build("SELECT *  FROM  V_ROUTER_SUPP_Line WHERE RTR_NUM = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"RTR_NUM",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_SUPP_Line","RTR_NUM*!*SUFFIX*!*TYPE*!*LINE*!*F_INSERT",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'ROUTER_XREF
+		F.Intrinsic.String.Build("SELECT * FROM ROUTER_XREF WHERE ROUTER = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"ROUTER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ROUTER_XREF","ROUTER*!*SUFFIX",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'SCHED_
+		F.Intrinsic.String.Build("SELECT * FROM SCHED_ROUTER_SUPP WHERE RT_NUMBER = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",-1,"RT_NUMBER",V.Global.sGSSPart12.Trim)
+			F.Data.DataTable.SaveToDB("dtRouter","con","SCHED_ROUTER_SUPP","RT_NUMBER*!*RT_SUFFIX*!*RT_LINE",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+		'ATG_BRW_ROUTER
+		F.Intrinsic.String.Build("SELECT * FROM ATG_BRW_ROUTER WHERE GSSROUTER = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtRouter","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtRouter.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtRouter",0,"DISPLAY_RTR",V.Global.sLongPart,"DISPLAY_REV",V.Global.sLongRev,"GSSROUTER",V.Global.sGSSPart12)
+			F.Data.DataTable.SaveToDB("dtRouter","con","ATG_BRW_ROUTER","DISPLAY_RTR*!*DISPLAY_REV*!*GSSROUTER*!*ROUTER_SUFFIX",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtRouter")
+	
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optRouter.Value)	
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkPart.Value,=,1)
+				F.Intrinsic.Control.CallSub(copypart)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkBOM.Value,=,1)
+				F.Intrinsic.Control.CallSub(copybom)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.UI.Msgbox("Copy Complete","Complete")
+			F.Intrinsic.Control.CallSub(clearscreen)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+
+	f.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,20004)
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	f.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndTry
+Program.Sub.CopyRouter.End
+
+Program.Sub.CopyBom.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sBar.Declare
+	V.Local.iBar.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iLen.Declare
+	V.Local.sPart.Declare
+
+
+	F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sLongPart,V.Global.sLongRev,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+	F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+		F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev,V.Local.sPart)
+		F.Intrinsic.String.Build("SELECT PARENT FROM BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Local.sPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("SELECT PARENT FROM BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Global.sGSSPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.UI.Msgbox("The To BOM already exists.","BOM Validation")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optBOM.Value)
+			F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' ORDER BY GSS_PART DESC;",V.Global.sLongPart,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+			F.Intrinsic.String.Split(V.Global.sGSSPart,"||",V.Global.sGSSPart12)
+			
+			F.Intrinsic.Control.If(V.Global.sGSSPart12,<>,"")
+				F.Intrinsic.String.Build("SELECT TOP 1 GSS_PART FROM INV_LXR WHERE GSS_PART LIKE '{0}%' ORDER BY GSS_PART DESC;",V.Global.sGSSPart12(0),V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.Control.Else
+				V.Local.sRet.Set("")
+			F.Intrinsic.Control.EndIf
+			
+			V.Local.sRet.Set("")
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				F.Intrinsic.String.Len(V.Global.sLongPart,V.Local.iLen)
+				F.Intrinsic.Control.If(V.Local.iLen,>,17)
+'					F.Intrinsic.String.Left(V.Global.sLongPart,12,V.Global.sGSSPart)
+'					F.Intrinsic.String.Build("{0}001||{1}",V.Global.sGSSPart,V.Global.sLongRev,V.Global.sGSSPart12)
+					Function.Global.Inventory.GetGSSPart(V.Global.sLongPart,V.Global.sLongRev,V.Global.sGSSPart12)
+'					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+'					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.GSSPartString(V.Global.sLongPart,V.Global.sLongRev,V.Global.sGSSPart12)
+					F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)					
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Split(V.Local.sRet,"||",V.Local.sRet)
+				F.Intrinsic.String.Left(V.Local.sRet(0),12,V.Global.sGSSPart)
+				F.Intrinsic.String.Right(V.Local.sRet(0),3,V.Local.sBar)
+				F.Intrinsic.Math.ConvertToLong(V.Local.sBar,V.Local.iBar)
+				F.Intrinsic.Math.Add(V.Local.iBar,1,V.Local.iBar)
+				F.Intrinsic.String.LPad(V.Local.iBar,"0",3,V.Local.sBar)
+				F.Intrinsic.String.Build("{0}{1}||{2}",V.Global.sGSSPart,V.Local.sBar,V.Global.sLongRev,V.Global.sGSSPart12)
+				F.Intrinsic.String.Build("INSERT INTO INV_LXR VALUES('{0}','{1}','{2}','{3}','{4}')",V.Global.sGSSPart12,V.Global.sLongPart,V.Global.sLongRev,"538976288","",V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.String.Build("SELECT GSS_PART FROM INV_LXR WHERE DISPLAY_PART = '{0}' AND DISPLAY_REV = '{1}';",V.Global.sFrom,V.Global.sFromRev,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+		F.Intrinsic.Control.If(V.Global.sGSSPart,=,"")
+			F.Intrinsic.String.GSSPartString(V.Global.sFrom,V.Global.sFromRev,V.Local.sPart)
+			F.Intrinsic.String.Build("SELECT top 1 PARENT FROM V_BOM_MSTR WHERE PARENT = '{0}' AND SEQUENCE_BOM = '0000';",V.Local.sPart,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sGSSPart)
+		F.Intrinsic.Control.EndIf
+		
+		'BOM_ENG
+		F.Intrinsic.String.Build("SELECT * FROM BOM_ENG WHERE PART = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtBOM","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtBOM.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtBOM",0,"PART",V.Global.sGSSPart12)
+			F.Data.DataTable.SaveToDB("dtBOM","con","BOM_ENG","PART",256)
+		F.Intrinsic.Control.Else
+			Function.Intrinsic.UI.Msgbox("No BOMs to Update.","BOM Check")
+			Function.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtBOM")
+		'BOM_MSTR
+		F.Intrinsic.String.Build("SELECT * FROM BOM_MSTR WHERE PARENT = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtBOM","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtBOM.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtBOM",-1,"PARENT",V.Global.sGSSPart12)
+			F.Data.DataTable.SaveToDB("dtBOM","con","BOM_MSTR","PARENT*!*SEQUENCE_BOM*!*INSERT_BOM",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtBOM")
+		'ATG_BRW_BOM
+		F.Intrinsic.String.Build("SELECT * FROM ATG_BRW_BOM WHERE GSSPARENT = '{0}';",V.Global.sGSSPart,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtBOM","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.If(V.DataTable.dtBOM.RowCount,<>,0)
+			F.Data.DataTable.SetValue("dtBOM",0,"DISPLAY_PARENT",V.Global.sLongPart,"DISPLAY_REV",V.Global.sLongRev,"GSSPARENT",V.Global.sGSSPart12)
+			F.Data.DataTable.SaveToDB("dtBOM","con","ATG_BRW_BOM","DISPLAY_PARENT*!*DISPLAY_REV*!*GSSPARENT",256)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtBOM")
+		
+		F.Intrinsic.Control.If(V.Screen.frmCopy!optBOM.Value)
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkPart.Value,=,1)
+				F.Intrinsic.Control.CallSub(copypart)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.Control.If(V.Screen.frmCopy!chkRouter.Value,=,1)
+				F.Intrinsic.Control.CallSub(copyrouter)
+			F.Intrinsic.Control.EndIf
+		
+			F.Intrinsic.UI.Msgbox("Copy Complete","Complete")
+			F.Intrinsic.Control.CallSub(clearscreen)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+	f.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,20004)
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	f.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.EndTry
+Program.Sub.CopyBom.End
+
+Program.Sub.SetTextBoxLen.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iPartLen.Declare
+	V.Local.iRevLen.Declare
+	
+	F.Global.General.ReadOption("400861",3,False,"0000",V.Local.iPartLen)
+	F.Global.General.ReadOption("400862",3,False,"0000",V.Local.iRevLen)
+	Gui.frmCopy.txtFrom.MaxLength(V.Local.iPartLen)
+	Gui.frmCopy.txtFromRev.MaxLength(V.Local.iRevLen)
+	Gui.frmCopy.txtFromLoc.MaxLength(2)
+	Gui.frmCopy.txtTo.MaxLength(V.Local.iPartLen)
+	Gui.frmCopy.txtToRev.MaxLength(V.Local.iRevLen)
+	Gui.frmCopy.txtToLoc.MaxLength(2)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetTextBoxLen.End
+
+Program.Sub.chkPart_Click.Start
+'	F.Intrinsic.Control.Try
+'	V.Local.sError.Declare
+	
+'	F.Intrinsic.Control.If(V.Screen.frmCopy!chkPart.Value,=,1)
+'		Gui.frmCopy.chkMaint.Visible(True)
+'	F.Intrinsic.Control.Else
+'		Gui.frmCopy.chkMaint.Visible(False)
+'		Gui.frmCopy.chkMaint.Value(0)
+'	F.Intrinsic.Control.EndIf
+'
+'	F.Intrinsic.Control.Catch
+'		F.Intrinsic.String.Build("Project: GAB_4251_LongPartCopy.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}.",V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+'		F.Intrinsic.UI.Msgbox(V.Local.sError)
+'		F.Intrinsic.Control.End 
+'	F.Intrinsic.Control.EndTry
+Program.Sub.chkPart_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$GAB_4251_LongPartCopy$}$AGV$}$10/03/2016 11:15:29 AM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$rnair$}$20210416105009817$}$JUGEdtlNdgRUPvge2DQ26bz/1piQWHOnRy2VwJXAS8qsWS7Yt5PpooaV+m2DsL7sb03lp8Jy5gE=
+Program.Sub.Comments.End
